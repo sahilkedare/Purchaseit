@@ -9,7 +9,7 @@ import useStyles from './styles'
 //   { id: 2, name: "Acer", description: "Running Laptop", price: "$5", image:"https://static.acer.com/up/Resource/Acer/Laptops/Swift_3/Image/20200416/Acer-Swift-3_SF314-42_Silver-FP-Backlit_modelpreview.png" },
 // ];
 
-const Products = ({products}) => {
+const Products = ({products, onAddToCart}) => {
   const classes = useStyles();
   return (
     <main className={classes.content}>
@@ -17,7 +17,7 @@ const Products = ({products}) => {
       <Grid container justify="center" spacing={4}>
         {products.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
+            <Product product={product} onAddToCart={onAddToCart} />
           </Grid>
         ))}
       </Grid>
