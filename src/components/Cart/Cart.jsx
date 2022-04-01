@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography, Button, Grid } from "@material-ui/core";
 // import { Link } from "react-router-dom";
-
+import CartItem from './CartItem/CartItem';
 import useStyles from "./styles";
 
 // const Cart = (props) => {
@@ -11,14 +11,14 @@ import useStyles from "./styles";
 //     )
 // }
 
-const Cart = ({cart}) => {
+const Cart = ({ cart }) => {
   // const { line_items } = cart;
   const classes = useStyles();
-  const isEmpty = cart.total_unique_items;
-  console.log("LOGS" + isEmpty);
+  // const isEmpty = cart.total_unique_items;
+  // console.log("LOGS" + isEmpty);
   // const pitem= props.cart.line_items
   // console.log("LOGS" + pitem);
-  // console.log(cart);
+  console.log(cart);
   // alert(JSON.stringify(cart));
 
 
@@ -27,41 +27,43 @@ const Cart = ({cart}) => {
   )
 
   const FilledCart = () => (
-      <>
-        <Grid container spacing={3}>
-          {cart.line_items.map((item) => (
-            <Grid item xs={12} sm={4} key={item.id}>
-              <div>{item.name}</div>
-            </Grid>
-          ))}
-        </Grid>
-        <div className={classes.cardDetails}>
-          <Typography variant="h4">
-            Subtotal: {cart.subtotal.formatted_with_symbol}
-          </Typography>
-          <div>
-            <Button
-              className={classes.emptyButton}
-              size="large"
-              type="button"
-              variant="contained"
-              color="secondary"
-            >
-              Empty cart
-            </Button>
-            <Button
-              className={classes.checkoutButton}
-              size="large"
-              type="button"
-              variant="contained"
-              color="primary"
-            >
-              Checkout
-            </Button>
-          </div>
+    <>
+      <Grid container spacing={3}>
+        {cart.line_items.map((item) => (
+          <Grid item xs={12} sm={4} key={item.id}>
+            <CartItem item={item}/>
+          </Grid>
+        ))}
+      </Grid>
+      <div className={classes.cardDetails}>
+        <Typography variant="h4">
+          Subtotal: {cart.subtotal.formatted_with_symbol}
+        </Typography>
+        <div>
+          <Button
+            className={classes.emptyButton}
+            size="large"
+            type="button"
+            variant="contained"
+            color="secondary"
+          >
+            Empty cart
+          </Button>
+          <Button
+            className={classes.checkoutButton}
+            size="large"
+            type="button"
+            variant="contained"
+            color="primary"
+          >
+            Checkout
+          </Button>
         </div>
-      </>
-    )
+      </div>
+    </>
+  )
+
+  if (!cart.line_items) return "Loading...";
 
   return (
     <Container>
@@ -69,7 +71,7 @@ const Cart = ({cart}) => {
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart
       </Typography>
-      {!isEmpty ? <EmptyCart /> : <FilledCart />}
+      {!cart.line_items.length? <EmptyCart /> : <FilledCart />}
     </Container>
   );
 };
