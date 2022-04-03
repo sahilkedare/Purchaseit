@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   AppBar,
   Toolbar,
@@ -33,7 +33,7 @@ const Navbar = ({ totalItems }) => {
               height="25px"
               className={classes.image}
             />
-            Shopify
+            Purchaseit
           </Typography>
           <div className={classes.grow} />
           {location.pathname === "/" && (
