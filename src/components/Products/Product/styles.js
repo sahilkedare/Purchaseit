@@ -10,6 +10,7 @@ export default makeStyles(() => ({
     paddingTop: '56.25%', // 16:9
   },
   cardActions: {
+    paddingTop: 0,
     display: 'flex',
     justifyContent: 'flex-end',
   },
@@ -17,4 +18,8 @@ export default makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  textcont: {
+    padding: 15,
+    paddingBottom:0,
+  }
 }));

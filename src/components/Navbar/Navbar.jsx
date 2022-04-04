@@ -45,7 +45,7 @@ const Navbar = ({ totalItems }) => {
                 color="inherit"
               >
                 <Badge badgeContent={totalItems} color="secondary">
-                  <ShoppingCart />
+                  <ShoppingCart style={{ color: '#2748db' }} />
                 </Badge>
               </IconButton>
             </div>

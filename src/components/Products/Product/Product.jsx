@@ -17,16 +17,16 @@ const Product = ({ product ,onAddToCart}) => {
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={product.image.url} title={product.name} />
-      <CardContent>
+      <CardContent className={classes.textcont}>
         <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h6" component="h2">
             {product.name}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h6" component="h2">
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary" />
+        <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="h7" color="textSecondary" />
     
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>

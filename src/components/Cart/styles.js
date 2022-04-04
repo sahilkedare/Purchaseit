@@ -25,5 +25,9 @@ export default makeStyles((theme) => ({
     marginTop: '10%',
     width: '100%',
     justifyContent: 'space-between',
+    marginBottom:30
   },
+  maincon: {
+    backgroundColor: '#f2f7f7'
+  }
 }));
